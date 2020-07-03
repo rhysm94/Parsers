@@ -6,7 +6,7 @@
 //
 
 public extension Parser where A == Void {
-	func literal(_ string: String) -> Parser {
+	static func literal(_ string: String) -> Parser {
 		Parser { str in
 			guard str.hasPrefix(string) else { return nil }
 			str.removeFirst(string.count)
