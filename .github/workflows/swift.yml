@@ -33,4 +33,10 @@ jobs:
         /usr/local/opt/llvm/bin/llvm-cov export -format="lcov" \
           "${COV_BIN}" \
           -instr-profile=.build/debug/codecov/default.profdata \
-          -ignore-filename-regex=".build|Tests"\
+          -ignore-filename-regex=".build|Tests"\ > info.lcov
+    - name: Codecov
+      uses: codecov/codecov-action@v1.0.10
+      with:
+        name: Parsers
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./info.lcov
