@@ -20,8 +20,9 @@ jobs:
     - name: Run tests with coverage
       run: swift test --enable-code-coverage -v
     - name: Generate lcov
+      env:
+        BIN_PATH: ${swift build --show-bin-path}
       run: |
-        BIN_PATH="$(swift build --show-bin-path)"
         XCTEST_PATH="$(find ${BIN_PATH} -name '*.xctest')"
         COV_BIN=$XCTEST_PATH
         if [[ "$OSTYPE" == "darwin"* ]]; then
