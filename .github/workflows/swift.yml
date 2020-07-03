@@ -21,8 +21,8 @@ jobs:
       run: swift test --enable-code-coverage -v
     - name: Generate lcov
       env:
-        BIN_PATH: ${swift build --show-bin-path}
-        XCTEST_PATH: ${find ${{ env.BIN_PATH }} -name '*.xctest'}
+        BIN_PATH: ${{ swift build --show-bin-path }}
+        XCTEST_PATH: ${{ find ${{ env.BIN_PATH }} -name '*.xctest' }}
         COV_BIN: ${{ env.XCTEST_PATH }}
       run: |
         if [[ "$OSTYPE" == "darwin"* ]]; then
