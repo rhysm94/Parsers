@@ -12,9 +12,7 @@ on:
 
 jobs:
   build:
-
     runs-on: macos-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Build
@@ -23,6 +21,8 @@ jobs:
       run: swift test --enable-code-coverage -v
     - name: Generate lcov
       run: |
+        brew install llvm
+
         BIN_PATH="$(swift build --show-bin-path)"
         XCTEST_PATH="$(find ${BIN_PATH} -name '*.xctest')"
         COV_BIN=$XCTEST_PATH
