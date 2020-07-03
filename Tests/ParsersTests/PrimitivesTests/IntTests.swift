@@ -25,4 +25,20 @@ final class IntTests: XCTestCase {
 		XCTAssertNil(match.match)
 		XCTAssertEqual("foo", match.rest)
 	}
+
+	func testNegativeIntSuccess() {
+		let match = Parser.int("-10")
+		XCTAssertEqual(-10, match.match)
+	}
+
+	func testNegativeIntSuccess_LongerInput() {
+		let match = Parser.int("-10 hello world")
+		XCTAssertEqual(-10, match.match)
+		XCTAssertEqual(" hello world", match.rest)
+	}
+
+	func testNegativeIntFailure() {
+		let match = Parser.int("-10-10-10")
+		XCTAssertNil(match.match)
+	}
 }
