@@ -12,12 +12,31 @@ on:
 
 jobs:
   build:
-
     runs-on: macos-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Build
       run: swift build -v
-    - name: Run tests
-      run: swift test -v
+    - name: Run tests with coverage
+      run: swift test --enable-code-coverage -v
+    - name: Generate lcov
+      run: |
+        BIN_PATH="$(swift build --show-bin-path)"
+        XCTEST_PATH="$(find ${BIN_PATH} -name '*.xctest')"
+        COV_BIN=$XCTEST_PATH
+
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+            f="$(basename $XCTEST_PATH .xctest)"
+            COV_BIN="${COV_BIN}/Contents/MacOS/$f"
+        fi
+
+        /usr/local/opt/llvm/bin/llvm-cov export -format="lcov" \
+          "${COV_BIN}" \
+          -instr-profile=.build/debug/codecov/default.profdata \
+          -ignore-filename-regex=".build|Tests"\ > info.lcov
+    - name: Codecov
+      uses: codecov/codecov-action@v1.0.10
+      with:
+        name: Parsers
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./info.lcov
