@@ -22,8 +22,8 @@ jobs:
     - name: Generate lcov
       env:
         BIN_PATH: ${swift build --show-bin-path}
-        XCTEST_PATH: ${find env.BIN_PATH -name '*.xctest'}
-        COV_BIN: env.XCTEST_PATH
+        XCTEST_PATH: ${find ${{ env.BIN_PATH }} -name '*.xctest'}
+        COV_BIN: ${{ env.XCTEST_PATH }}
       run: |
         if [[ "$OSTYPE" == "darwin"* ]]; then
             f="$(basename $XCTEST_PATH .xctest)"
