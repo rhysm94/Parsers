@@ -25,4 +25,40 @@ final class IntTests: XCTestCase {
 		XCTAssertNil(match.match)
 		XCTAssertEqual("foo", match.rest)
 	}
+
+	func testNegativeIntSuccess() {
+		let match = Parser.int("-10")
+		XCTAssertEqual(-10, match.match)
+	}
+
+	func testNegativeIntSuccess_LongerInput() {
+		let match = Parser.int("-10 hello world")
+		XCTAssertEqual(-10, match.match)
+		XCTAssertEqual(" hello world", match.rest)
+	}
+
+	func testNegativeIntFailure() {
+		let match = Parser.int("-10-10-10")
+		XCTAssertNil(match.match)
+	}
+
+	func testIntMaxParsing() {
+		let match = Parser.int("9223372036854775807")
+		XCTAssertEqual(9223372036854775807, match.match)
+	}
+
+	func testIntMaxPlusOneParsingFails() {
+		let match = Parser.int("9223372036854775808")
+		XCTAssertNil(match.match)
+	}
+
+	func testIntMinParsing() {
+		let match = Parser.int("-9223372036854775808")
+		XCTAssertEqual(-9223372036854775808, match.match)
+	}
+
+	func testIntMinMinusOneParsingFails() {
+		let match = Parser.int("-9223372036854775809")
+		XCTAssertNil(match.match)
+	}
 }

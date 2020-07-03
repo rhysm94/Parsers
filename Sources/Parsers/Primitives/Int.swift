@@ -7,7 +7,7 @@
 
 public extension Parser where A == Int {
 	static let int = Parser { str in
-		let prefix = str.prefix(while: { $0.isNumber })
+		let prefix = str.prefix(while: { $0 == "-" || $0.isNumber })
 		guard let int = Int(prefix) else {
 			return nil
 		}
