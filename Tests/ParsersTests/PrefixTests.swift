@@ -22,4 +22,9 @@ final class PrefixTests: XCTestCase {
 		XCTAssertEqual("", match.match)
 		XCTAssertEqual(" Hello World!", match.rest)
 	}
+
+	static let allTests = [
+		(testGetsNextWord, "testGetsNextWord"),
+		(testMatchEmptyWhenNoMatchFound, "testMatchEmptyWhenNoMatchFound")
+	]
 }
