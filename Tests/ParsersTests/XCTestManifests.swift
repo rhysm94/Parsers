@@ -9,7 +9,8 @@ public func allTests() -> [XCTestCaseEntry] {
 		testCase(ParserTests.allTests),
 		testCase(PrefixTests.allTests),
 		testCase(AlwaysTests.allTests),
-		testCase(NeverTests.allTests)
+		testCase(NeverTests.allTests),
+		testCase(ZeroOrMoreTests.allTests)
     ]
 }
 #endif
