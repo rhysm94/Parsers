@@ -33,4 +33,26 @@ final class ZipTests: XCTestCase {
 		XCTAssertEqual(40, match.1)
 		XCTAssertTrue(result.rest.isEmpty)
 	}
+
+	func testZipAFails() {
+		let parser = zip(.literal("Hello"), .literal(" World"))
+		var input = "Howdy World"[...]
+
+		let result = parser(&input)
+
+		XCTAssertNil(result)
+		XCTAssertEqual("Howdy World", input)
+	}
+
+	func testZipBFails() {
+		let parser = zip(.literal("Hello"), .literal("World"))
+
+		// Should fail because of the space
+		var input = "Hello World"[...]
+
+		let result = parser(&input)
+
+		XCTAssertNil(result)
+		XCTAssertEqual("Hello World", input)
+	}
 }
