@@ -20,4 +20,9 @@ final class AlwaysTests: XCTestCase {
 		XCTAssertEqual("Hello", match.match)
 		XCTAssertEqual("Hello", match.rest)
 	}
+
+	static let allTests = [
+		(testAlways_NoInput, "testAlways_NoInput"),
+		(testAlways_SameInput, "testAlways_SameInput")
+	]
 }
