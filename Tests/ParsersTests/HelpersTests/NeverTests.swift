@@ -14,4 +14,8 @@ final class NeverTests: XCTestCase {
 		XCTAssertNil(match.match)
 		XCTAssertEqual("12345", match.rest)
 	}
+
+	static let allTests = [
+		(testNever, "testNever")
+	]
 }

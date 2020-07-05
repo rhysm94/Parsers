@@ -21,7 +21,7 @@ final class CharacterTests: XCTestCase {
 		XCTAssertEqual("", parser.rest)
 	}
 
-	static var allTests = [
+	static let allTests = [
 		("testSingleCharacter", testSingleCharacter),
 		("testNothingParsed", testNothingParsed)
 	]

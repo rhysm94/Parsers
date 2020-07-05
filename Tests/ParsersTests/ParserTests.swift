@@ -45,4 +45,11 @@ final class ParserTests: XCTestCase {
 		XCTAssertNil(match.match)
 		XCTAssertEqual("13", match.rest)
 	}
+
+	static let allTests = [
+		(testMapIntToBool_True, "testMapIntToBool_True"),
+		(testMapIntToBool_False, "testMapIntToBool_False"),
+		(testFlatMapEvenInts_Success, "testFlatMapEvenInts_Success"),
+		(testFlatMapEvenInts_Failure, "testFlatMapEvenInts_Failure")
+	]
 }

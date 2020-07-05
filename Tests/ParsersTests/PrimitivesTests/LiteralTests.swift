@@ -29,4 +29,10 @@ final class LiteralTests: XCTestCase {
 		XCTAssertNotNil(match.match)
 		XCTAssertEqual(", how are you?", match.rest)
 	}
+
+	static let allTests = [
+		(testExpectedMatch, "testExpectedMatch"),
+		(testExpectedNoMatch, "testExpectedNoMatch"),
+		(testExpectedMatchLongLiteral, "testExpectedMatchLongLiteral")
+	]
 }
