@@ -92,13 +92,13 @@ final class ZeroOrMoreTests: XCTestCase {
 	}
 
 	static let allTests = [
-		(testZeroOrMoreSpaces_Zero, "testZeroOrMoreSpaces_Zero"),
-		(testZeroOrMoreSpaces_One, "testZeroOrMoreSpaces_One"),
-		(testZeroOrMoreSpaces_Many, "testZeroOrMoreSpaces_Many"),
-		(testZeroOrMore_CSV_0Values_NoTrailing, "testZeroOrMore_CSV_0Values_NoTrailing"),
-		(testZeroOrMore_CSV_4Values_NoTrailing, "testZeroOrMore_CSV_4Values_NoTrailing"),
-		(testZeroOrMore_CSV_4Values_Trailing, "testZeroOrMore_CSV_4Values_Trailing"),
-		(testZeroOrMore_CSV_10Values_NoTrailing_NoRest, "testZeroOrMore_CSV_10Values_NoTrailing_NoRest"),
-		(testLongZeroOrMoreCSV, "testLongZeroOrMoreCSV")
+		("testZeroOrMoreSpaces_Zero", testZeroOrMoreSpaces_Zero),
+		("testZeroOrMoreSpaces_One", testZeroOrMoreSpaces_One),
+		("testZeroOrMoreSpaces_Many", testZeroOrMoreSpaces_Many),
+		("testZeroOrMore_CSV_0Values_NoTrailing", testZeroOrMore_CSV_0Values_NoTrailing),
+		("testZeroOrMore_CSV_4Values_NoTrailing", testZeroOrMore_CSV_4Values_NoTrailing),
+		("testZeroOrMore_CSV_4Values_Trailing", testZeroOrMore_CSV_4Values_Trailing),
+		("testZeroOrMore_CSV_10Values_NoTrailing_NoRest", testZeroOrMore_CSV_10Values_NoTrailing_NoRest),
+		("testLongZeroOrMoreCSV", testLongZeroOrMoreCSV)
 	]
 }
