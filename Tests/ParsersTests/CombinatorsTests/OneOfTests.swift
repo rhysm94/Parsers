@@ -54,4 +54,11 @@ final class OneOfTests: XCTestCase {
 		XCTAssertNil(match.match)
 		XCTAssertEqual("12345", match.rest)
 	}
+
+	static let allTests = [
+		("testOneOfContains_Array", testOneOfContains_Array),
+		("testOneOfDoesntContain_Array", testOneOfDoesntContain_Array),
+		("testOneOfContains_Variadic", testOneOfContains_Variadic),
+		("testOneOfDoesntContain_Variadic", testOneOfDoesntContain_Variadic),
+	]
 }

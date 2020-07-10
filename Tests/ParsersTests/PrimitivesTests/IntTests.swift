@@ -63,15 +63,15 @@ final class IntTests: XCTestCase {
 	}
 
 	static let allTests = [
-		(testMatchOneInt, "testMatchOneInt"),
-		(testMatchIntWithMore, "testMatchIntWithMore"),
-		(testNoInt, "testNoInt"),
-		(testNegativeIntSuccess, "testNegativeIntSuccess"),
-		(testNegativeIntSuccess_LongerInput, "testNegativeIntSuccess_LongerInput"),
-		(testNegativeIntFailure, "testNegativeIntFailure"),
-		(testIntMaxParsing, "testIntMaxParsing"),
-		(testIntMaxPlusOneParsingFails, "testIntMaxPlusOneParsingFails"),
-		(testIntMinParsing, "testIntMinParsing"),
-		(testIntMinMinusOneParsingFails, "testIntMinMinusOneParsingFails")
+		("testMatchOneInt", testMatchOneInt),
+		("testMatchIntWithMore", testMatchIntWithMore),
+		("testNoInt", testNoInt),
+		("testNegativeIntSuccess", testNegativeIntSuccess),
+		("testNegativeIntSuccess_LongerInput", testNegativeIntSuccess_LongerInput),
+		("testNegativeIntFailure", testNegativeIntFailure),
+		("testIntMaxParsing", testIntMaxParsing),
+		("testIntMaxPlusOneParsingFails", testIntMaxPlusOneParsingFails),
+		("testIntMinParsing", testIntMinParsing),
+		("testIntMinMinusOneParsingFails", testIntMinMinusOneParsingFails)
 	]
 }

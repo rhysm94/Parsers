@@ -31,8 +31,8 @@ final class LiteralTests: XCTestCase {
 	}
 
 	static let allTests = [
-		(testExpectedMatch, "testExpectedMatch"),
-		(testExpectedNoMatch, "testExpectedNoMatch"),
-		(testExpectedMatchLongLiteral, "testExpectedMatchLongLiteral")
+		("testExpectedMatch", testExpectedMatch),
+		("testExpectedNoMatch", testExpectedNoMatch),
+		("testExpectedMatchLongLiteral", testExpectedMatchLongLiteral)
 	]
 }

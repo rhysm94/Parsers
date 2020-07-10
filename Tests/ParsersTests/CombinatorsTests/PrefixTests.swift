@@ -24,7 +24,7 @@ final class PrefixTests: XCTestCase {
 	}
 
 	static let allTests = [
-		(testGetsNextWord, "testGetsNextWord"),
-		(testMatchEmptyWhenNoMatchFound, "testMatchEmptyWhenNoMatchFound")
+		("testGetsNextWord", testGetsNextWord),
+		("testMatchEmptyWhenNoMatchFound", testMatchEmptyWhenNoMatchFound)
 	]
 }

@@ -28,4 +28,10 @@ final class ZeroOrOneTests: XCTestCase {
 		XCTAssertNil(result.match)
 		XCTAssertEqual("---abc", result.rest)
 	}
+
+	static let allTests = [
+		("testZeroCase", testZeroCase),
+		("testOneCase", testOneCase),
+		("testMoreCase", testMoreCase),
+	]
 }

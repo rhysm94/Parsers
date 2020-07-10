@@ -22,7 +22,7 @@ final class AlwaysTests: XCTestCase {
 	}
 
 	static let allTests = [
-		(testAlways_NoInput, "testAlways_NoInput"),
-		(testAlways_SameInput, "testAlways_SameInput")
+		("testAlways_NoInput", testAlways_NoInput),
+		("testAlways_SameInput", testAlways_SameInput)
 	]
 }

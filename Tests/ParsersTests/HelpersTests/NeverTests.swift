@@ -16,6 +16,6 @@ final class NeverTests: XCTestCase {
 	}
 
 	static let allTests = [
-		(testNever, "testNever")
+		("testNever", testNever)
 	]
 }

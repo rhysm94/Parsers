@@ -39,4 +39,11 @@ final class OneOrMoreTests: XCTestCase {
 		XCTAssertNil(result.match)
 		XCTAssertEqual("abcde", result.rest)
 	}
+
+	static let allTests = [
+		("testSimpleInt", testSimpleInt),
+		("testTrailingComma", testTrailingComma),
+		("testExactlyOneInt", testExactlyOneInt),
+		("testZeroInts", testZeroInts),
+	]
 }

@@ -55,4 +55,11 @@ final class ZipTests: XCTestCase {
 		XCTAssertNil(result)
 		XCTAssertEqual("Hello World", input)
 	}
+
+	static let allTests = [
+		("testZipCharInt", testZipCharInt),
+		("testZipThree", testZipThree),
+		("testZipAFails", testZipAFails),
+		("testZipBFails", testZipBFails),
+	]
 }
