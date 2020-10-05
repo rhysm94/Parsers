@@ -43,8 +43,8 @@ final class IntTests: XCTestCase {
 	}
 
 	func testIntMaxParsing() {
-		let match = Parser.int("9223372036854775807")
-		XCTAssertEqual(9223372036854775807, match.match)
+		let match = Parser.int(String(Int.max))
+		XCTAssertEqual(Int.max, match.match)
 	}
 
 	func testIntMaxPlusOneParsingFails() {
@@ -53,8 +53,8 @@ final class IntTests: XCTestCase {
 	}
 
 	func testIntMinParsing() {
-		let match = Parser.int("-9223372036854775808")
-		XCTAssertEqual(-9223372036854775808, match.match)
+		let match = Parser.int(String(Int.min))
+		XCTAssertEqual(Int.min, match.match)
 	}
 
 	func testIntMinMinusOneParsingFails() {
