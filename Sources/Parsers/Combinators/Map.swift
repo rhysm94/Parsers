@@ -6,8 +6,8 @@
 //
 
 public extension Parser {
-	func map<B>(_ f: @escaping (A) -> B) -> Parser<B> {
-		Parser<B> { str in
+	func map<NewOutput>(_ f: @escaping (Output) -> NewOutput) -> Parser<NewOutput> {
+		Parser<NewOutput> { str in
 			self.run(&str).map(f)
 		}
 	}

@@ -6,7 +6,7 @@
 //
 
 public extension Parser {
-	static func always(_ value: A) -> Parser {
+	static func always(_ value: Output) -> Parser {
 		Parser { _ in value }
 	}
 
