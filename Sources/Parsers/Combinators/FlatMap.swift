@@ -6,8 +6,8 @@
 //
 
 public extension Parser {
-	func flatMap<B>(_ f: @escaping (A) -> Parser<B>) -> Parser<B> {
-		Parser<B> { str in
+	func flatMap<NewOutput>(_ f: @escaping (Output) -> Parser<NewOutput>) -> Parser<NewOutput> {
+		Parser<NewOutput> { str in
 			let original = str
 			let parserB = self.run(&str).map(f)
 			guard let matchB = parserB?.run(&str) else {
