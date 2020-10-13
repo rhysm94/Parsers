@@ -8,7 +8,7 @@
 import Parsers
 import XCTest
 
-final class LiteralTests: XCTestCase {
+final class PrefixTests: XCTestCase {
 	func testExpectedMatch() {
 		let leftBraceParser = Parser.prefix("{")
 		let match = leftBraceParser("{ ")
