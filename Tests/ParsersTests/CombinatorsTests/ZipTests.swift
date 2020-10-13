@@ -35,7 +35,7 @@ final class ZipTests: XCTestCase {
 	}
 
 	func testZipFour() throws {
-		let parser = zip(.int, .literal("."), .int, .literal("."))
+		let parser = zip(.int, ".", .int, ".")
 
 		let result = parser("1.2.")
 		let match = try XCTUnwrap(result.match)
@@ -46,7 +46,7 @@ final class ZipTests: XCTestCase {
 	}
 
 	func testZipFive() throws {
-		let parser = zip(.int, .literal("."), .int, .literal("."), .int)
+		let parser = zip(.int, ".", .int, ".", .int)
 
 		let result = parser("1.2.3")
 		let match = try XCTUnwrap(result.match)
