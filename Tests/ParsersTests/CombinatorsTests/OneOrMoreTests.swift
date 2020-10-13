@@ -9,7 +9,7 @@ import Parsers
 import XCTest
 
 final class OneOrMoreTests: XCTestCase {
-	let oneOrMoreInt = oneOrMore(.int, separatedBy: .literal(","))
+	let oneOrMoreInt = oneOrMore(.int, separatedBy: ",")
 
 	func testSimpleInt() {
 		let input = "1,2,3,4"

@@ -1,5 +1,5 @@
 //
-//  PrefixTests.swift
+//  PrefixWhileTests.swift
 //  ParsersTests
 //
 //  Created by Rhys Morgan on 04/07/2020.
@@ -8,7 +8,7 @@
 import Parsers
 import XCTest
 
-final class PrefixTests: XCTestCase {
+final class PrefixWhileTests: XCTestCase {
 	let nextWord = Parser.prefix { $0.isLetter }
 
 	func testGetsNextWord() {
