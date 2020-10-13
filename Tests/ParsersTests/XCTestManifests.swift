@@ -6,14 +6,14 @@ public func allTests() -> [XCTestCaseEntry] {
 		// Literals
 		testCase(CharacterTests.allTests),
 		testCase(IntTests.allTests),
-		testCase(LiteralTests.allTests),
+		testCase(PrefixTests.allTests),
 
 		// Combinators
 		testCase(FlatMapTests.allTests),
 		testCase(MapTests.allTests),
 		testCase(OneOfTests.allTests),
 		testCase(OneOrMoreTests.allTests),
-		testCase(PrefixTests.allTests),
+		testCase(PrefixWhileTests.allTests),
 		testCase(ZeroOrMoreTests.allTests),
 		testCase(ZeroOrOneTests.allTests),
 		testCase(ZipTests.allTests),

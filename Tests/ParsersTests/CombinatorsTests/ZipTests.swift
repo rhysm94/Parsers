@@ -82,6 +82,8 @@ final class ZipTests: XCTestCase {
 	static let allTests = [
 		("testZipCharInt", testZipCharInt),
 		("testZipThree", testZipThree),
+		("testZipFour", testZipFour),
+		("testZipFive", testZipFive),
 		("testZipAFails", testZipAFails),
 		("testZipBFails", testZipBFails),
 	]
