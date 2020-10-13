@@ -10,7 +10,7 @@ import XCTest
 
 final class ZipTests: XCTestCase {
 	func testZipCharInt() throws {
-		let parser = zip(.literal("@"), .int)
+		let parser = zip(.prefix("@"), .int)
 		let testString = "@1234567890"
 
 		let result = parser(testString)
@@ -23,7 +23,7 @@ final class ZipTests: XCTestCase {
 	}
 
 	func testZipThree() throws {
-		let parser = zip(.int, .literal(" "), .int)
+		let parser = zip(.int, .prefix(" "), .int)
 			.map { one, _, two in (one, two) }
 
 		let result = parser("20 40")
@@ -35,7 +35,7 @@ final class ZipTests: XCTestCase {
 	}
 
 	func testZipAFails() {
-		let parser = zip(.literal("Hello"), .literal(" World"))
+		let parser = zip(.prefix("Hello"), .prefix(" World"))
 		var input = "Howdy World"[...]
 
 		let result = parser(&input)
@@ -45,7 +45,7 @@ final class ZipTests: XCTestCase {
 	}
 
 	func testZipBFails() {
-		let parser = zip(.literal("Hello"), .literal("World"))
+		let parser = zip(.prefix("Hello"), .prefix("World"))
 
 		// Should fail because of the space
 		var input = "Hello World"[...]

@@ -14,17 +14,17 @@ final class OneOfTests: XCTestCase {
 	}
 
 	private let currencyParser = oneOf([
-		Parser.literal("£").flatMap { .always(Currency.gbp) },
-		Parser.literal("$").flatMap { .always(.usd) },
-		Parser.literal("€").flatMap { .always(.eur) }
+		Parser.prefix("£").flatMap { .always(Currency.gbp) },
+		Parser.prefix("$").flatMap { .always(.usd) },
+		Parser.prefix("€").flatMap { .always(.eur) }
 	])
 
 	private let vowelParser = oneOf(
-		Parser.literal("a").flatMap { .always("a") },
-		Parser.literal("e").flatMap { .always("e") },
-		Parser.literal("i").flatMap { .always("i") },
-		Parser.literal("o").flatMap { .always("o") },
-		Parser.literal("u").flatMap { .always("u") }
+		Parser.prefix("a").flatMap { .always("a") },
+		Parser.prefix("e").flatMap { .always("e") },
+		Parser.prefix("i").flatMap { .always("i") },
+		Parser.prefix("o").flatMap { .always("o") },
+		Parser.prefix("u").flatMap { .always("u") }
 	)
 
 	func testOneOfContains_Array() {

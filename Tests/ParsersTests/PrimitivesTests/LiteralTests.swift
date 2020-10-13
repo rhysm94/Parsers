@@ -10,21 +10,21 @@ import XCTest
 
 final class LiteralTests: XCTestCase {
 	func testExpectedMatch() {
-		let leftBraceParser = Parser.literal("{")
+		let leftBraceParser = Parser.prefix("{")
 		let match = leftBraceParser("{ ")
 		XCTAssertNotNil(match.match)
 		XCTAssertEqual(" ", match.rest)
 	}
 
 	func testExpectedNoMatch() {
-		let leftBraceParser = Parser.literal("{")
+		let leftBraceParser = Parser.prefix("{")
 		let match = leftBraceParser("} ")
 		XCTAssertNil(match.match)
 		XCTAssertEqual("} ", match.rest)
 	}
 
 	func testExpectedMatchLongLiteral() {
-		let helloWorldParser = Parser.literal("Hello World")
+		let helloWorldParser = Parser.prefix("Hello World")
 		let match = helloWorldParser("Hello World, how are you?")
 		XCTAssertNotNil(match.match)
 		XCTAssertEqual(", how are you?", match.rest)
