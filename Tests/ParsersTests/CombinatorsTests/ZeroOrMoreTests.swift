@@ -9,8 +9,8 @@ import Parsers
 import XCTest
 
 final class ZeroOrMoreTests: XCTestCase {
-	let zeroOrMoreSpaces = zeroOrMore(.prefix(" "))
-	let commaSeparatedInts = zeroOrMore(.int, separatedBy: .prefix(","))
+	let zeroOrMoreSpaces = zeroOrMore(" ")
+	let commaSeparatedInts = zeroOrMore(.int, separatedBy: ",")
 	let commaOrNewLineSeparatedInts = zeroOrMore(.int, separatedBy: Parser.char.flatMap {
 		$0 == "," || $0 == "\n" ? .always(()) : .never
 	})

@@ -10,7 +10,7 @@ import XCTest
 
 final class ZipTests: XCTestCase {
 	func testZipCharInt() throws {
-		let parser = zip(.prefix("@"), .int)
+		let parser = zip("@", .int)
 		let testString = "@1234567890"
 
 		let result = parser(testString)
@@ -23,7 +23,7 @@ final class ZipTests: XCTestCase {
 	}
 
 	func testZipThree() throws {
-		let parser = zip(.int, .prefix(" "), .int)
+		let parser = zip(.int, " ", .int)
 			.map { one, _, two in (one, two) }
 
 		let result = parser("20 40")

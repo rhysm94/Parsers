@@ -9,7 +9,7 @@ import Parsers
 import XCTest
 
 final class ZeroOrOneTests: XCTestCase {
-	private let hyphenParser = zeroOrOne(.prefix("-"))
+	private let hyphenParser = zeroOrOne("-")
 
 	func testZeroCase() {
 		let result = hyphenParser.run("125")
