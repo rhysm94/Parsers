@@ -13,7 +13,7 @@ public func zip<A, B>(
 		let original = input
 		guard let maybeA = a.run(&input) else { return nil }
 		guard let result = b.run(&input) else {
-			str = original
+			input = original
 			return nil
 		}
 

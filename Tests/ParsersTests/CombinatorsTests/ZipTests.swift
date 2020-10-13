@@ -34,6 +34,29 @@ final class ZipTests: XCTestCase {
 		XCTAssertTrue(result.rest.isEmpty)
 	}
 
+	func testZipFour() throws {
+		let parser = zip(.int, .literal("."), .int, .literal("."))
+
+		let result = parser("1.2.")
+		let match = try XCTUnwrap(result.match)
+
+		XCTAssertEqual(1, match.0)
+		XCTAssertEqual(2, match.2)
+		XCTAssertTrue(result.rest.isEmpty)
+	}
+
+	func testZipFive() throws {
+		let parser = zip(.int, .literal("."), .int, .literal("."), .int)
+
+		let result = parser("1.2.3")
+		let match = try XCTUnwrap(result.match)
+
+		XCTAssertEqual(1, match.0)
+		XCTAssertEqual(2, match.2)
+		XCTAssertEqual(3, match.4)
+		XCTAssertTrue(result.rest.isEmpty)
+	}
+
 	func testZipAFails() {
 		let parser = zip(.literal("Hello"), .literal(" World"))
 		var input = "Howdy World"[...]
