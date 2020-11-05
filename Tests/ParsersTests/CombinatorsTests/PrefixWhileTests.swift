@@ -23,6 +23,43 @@ final class PrefixWhileTests: XCTestCase {
 		XCTAssertEqual(" Hello World!", match.rest)
 	}
 
+	func testPrefixUpto_Success() {
+		let text = "---Hello World---"
+
+		let parsed = Parser.prefix(upTo: "Hello").run(text)
+
+		XCTAssertEqual("---", parsed.match)
+		XCTAssertEqual("Hello World---", parsed.rest)
+	}
+
+	func testPrefixUpto_NotFound() {
+		let text = "---Hello World---"
+
+		let parsed = Parser.prefix(upTo: "Howdy").run(text)
+		XCTAssertNil(parsed.match)
+		XCTAssertEqual(text, String(parsed.rest))
+	}
+
+	func testPrefixThrough_Success() {
+		let text = """
+		func parse(_ string: inout String) {}
+		"""
+
+		let parsed = Parser.prefix(through: "inout").run(text)
+		XCTAssertEqual("func parse(_ string: inout", parsed.match)
+		XCTAssertEqual(" String) {}", parsed.rest)
+	}
+
+	func testPrefixThrough_NotFound() {
+		let text = """
+		func parse(_ string: inout String) {}
+		"""
+
+		let parsed = Parser.prefix(through: "Int").run(text)
+		XCTAssertNil(parsed.match)
+		XCTAssertEqual(text, String(parsed.rest))
+	}
+
 	static let allTests = [
 		(testGetsNextWord, "testGetsNextWord"),
 		(testMatchEmptyWhenNoMatchFound, "testMatchEmptyWhenNoMatchFound")
