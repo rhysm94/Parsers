@@ -50,3 +50,30 @@ public func zip<A, B, C, D, E>(
 	zip(a, zip(b, c, d, e))
 		.map { a, bcde in (a, bcde.0, bcde.1, bcde.2, bcde.3) }
 }
+
+// MARK: - Fluent zips
+public extension Parser {
+	static func skip(_ p: Self) -> Parser<Void> {
+		p.map { _ in () }
+	}
+
+	func skip<OtherOutput>(_ other: Parser<OtherOutput>) -> Parser {
+		zip(self, other).map { output, _ in output }
+	}
+
+	func take<NewOutput>(_ p: Parser<NewOutput>) -> Parser<(Output, NewOutput)> {
+		zip(self, p)
+	}
+
+	func take<A, B, C>(_ c: Parser<C>) -> Parser<(A, B, C)> where Output == (A, B) {
+		zip(self, c).map { ab, c in
+			(ab.0, ab.1, c)
+		}
+	}
+}
+
+public extension Parser where Output == Void {
+	func take<A>(_ secondParser: Parser<A>) -> Parser<A> where Output == Void {
+		zip(self, secondParser).map { _,  output in output }
+	}
+}
