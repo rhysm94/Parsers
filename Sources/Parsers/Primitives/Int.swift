@@ -6,12 +6,21 @@
 //
 
 public extension Parser where Output == Int {
-	static let int = Parser { str in
-		let prefix = str.prefix(while: { $0 == "-" || $0.isNumber })
-		guard let int = Int(prefix) else {
+	static let int = Parser { input in
+		let original = input
+		
+		var isFirstCharacter = true
+		let intPrefix = input.prefix { character in
+			defer { isFirstCharacter = false }
+			return (character == "-" || character == "+") && isFirstCharacter || character.isNumber
+		}
+		
+		guard let match = Int(intPrefix) else {
+			input = original
 			return nil
 		}
-		str.removeFirst(prefix.count)
-		return int
+		
+		input.removeFirst(intPrefix.count)
+		return match
 	}
 }

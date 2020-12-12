@@ -37,9 +37,10 @@ final class IntTests: XCTestCase {
 		XCTAssertEqual(" hello world", match.rest)
 	}
 
-	func testNegativeIntFailure() {
+	func testNegativeInt_Multiple() {
 		let match = Parser.int("-10-10-10")
-		XCTAssertNil(match.match)
+		XCTAssertEqual(-10, match.match)
+		XCTAssertEqual("-10-10", match.rest)
 	}
 
 	func testIntMaxParsing() {
@@ -68,7 +69,7 @@ final class IntTests: XCTestCase {
 		(testNoInt, "testNoInt"),
 		(testNegativeIntSuccess, "testNegativeIntSuccess"),
 		(testNegativeIntSuccess_LongerInput, "testNegativeIntSuccess_LongerInput"),
-		(testNegativeIntFailure, "testNegativeIntFailure"),
+		(testNegativeInt_Multiple, "testNegativeInt_Multiple"),
 		(testIntMaxParsing, "testIntMaxParsing"),
 		(testIntMaxPlusOneParsingFails, "testIntMaxPlusOneParsingFails"),
 		(testIntMinParsing, "testIntMinParsing"),
